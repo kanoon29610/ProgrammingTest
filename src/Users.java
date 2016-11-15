@@ -13,6 +13,7 @@ public class Users {
     public IUser create(int type, String name, String password) {
 
         IUser newuser = new User(type,name,password);
+        userList.add(newuser);
         return newuser;
     }
 
@@ -39,6 +40,8 @@ public class Users {
     // Return true if the user is in the list
     public boolean exists(IUser user)
     {
+        if(userList.size() == 0 )
+            throw new RuntimeException("Empty User in list");
         for(IUser users : userList)
         {
             if(users.getName().equals(user))
@@ -49,12 +52,16 @@ public class Users {
 
     // Return number of user in the list
     public int count() {
+        if(userList.size() ==0 )
+            throw new RuntimeException("Empty User in list");
         return userList.size();
     }
 
     // Return number of user in the list, according to type
     public int countByType(int type)
     {
+        if(userList.size() == 0 )
+            throw new RuntimeException("Empty User in list");
         int count=0;
         for (IUser users : userList)
         {
