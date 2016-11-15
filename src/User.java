@@ -53,12 +53,13 @@ public class User implements IUser {
 
     @Override
     public int getType() {
+
         return type;
     }
 
     @Override
     public int setType(int type) {
-        if(type != 1 && type != 2){
+        if(type != USER_STUDENT && type != USER_TEACHER){
             throw new RuntimeException("Your type is wrong.");
         }
         this.type = type;
