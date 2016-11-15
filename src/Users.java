@@ -36,8 +36,10 @@ public class Users {
             throw new RuntimeException("Empty User in list");
         for(IUser users : userList)
         {
-            if(user.getName().equals(users))
+            if(user.equals(users))
                 userList.remove(user);
+
+            else throw new RuntimeException("Not user in here");
         }
     }
 
