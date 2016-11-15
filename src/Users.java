@@ -34,7 +34,11 @@ public class Users {
     public void remove(IUser user) throws RuntimeException {
         if(userList.size() < 1 )
             throw new RuntimeException("Empty User in list");
-        userList.remove(user);
+        for(IUser users : userList)
+        {
+            if(user.getName().equals(users))
+                userList.remove(user);
+        }
     }
 
     // Return true if the user is in the list
